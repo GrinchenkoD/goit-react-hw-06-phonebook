@@ -33,11 +33,13 @@ const ContactList = ({ contacts, filter, deletePhone }) => {
 
 
 
-const mapStateToProps = (state) => ({
-    contacts: state.contacts.items,
-    filter: state.contacts.filter
-})
-
+const mapStateToProps = (state) => {
+    console.log(state)
+    return ({
+        contacts: state.contacts.items,
+        filter: state.contacts.filter
+    })
+}
 const mapDispatchToProps = { deletePhone }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList)
