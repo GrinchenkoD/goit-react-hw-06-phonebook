@@ -1,4 +1,7 @@
-const initialState={
+import { ADD_CONTACT, FILTER_CONTACTS, REMOVE_CONTACT } from "./phone.constants";
+
+
+const initialState = {
   contacts: {
     items: [],
     filter: ''
@@ -9,13 +12,13 @@ const initialState={
 const phoneReducer = (state = initialState, action) => {
   
   switch (action.type) {
-    case "phoneBook/addPhone":
+    case ADD_CONTACT:
       return { contacts: {...state.contacts ,items: [...state.contacts.items , action.payload]}};
     
-    case "phoneBook/addPhone":
+    case FILTER_CONTACTS:
       return { contacts: {...state.contacts, items: [...state.contacts.items.filter((item) => item.id !== action.payload)] } };
     
-    case "phoneBook/addFilter":
+    case REMOVE_CONTACT:
       return{ contacts:{...state.contacts, filter: action.payload}}
   
     default:
