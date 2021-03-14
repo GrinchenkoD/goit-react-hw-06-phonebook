@@ -29,22 +29,25 @@ class ContactForm extends Component {
     render() {
         const { name, phone } = this.state
         return (
-            <form onSubmit={this.handleSubmit} className={styles.form}>
-                <label htmlFor="name" className={styles.label} >Name</label>
-                <input id="name" type="text" name="name" value={name} onChange={this.handleChange}
-                    placeholder="Name*" required className={styles.input} />
+            <div className={styles.container}>
+                <h2 className={styles.title}>Phonebook</h2>
+                <form onSubmit={this.handleSubmit} className={styles.form}>
+                    <label htmlFor="name" className={styles.label} >Name</label>
+                    <input id="name" type="text" name="name" value={name} onChange={this.handleChange}
+                        placeholder="Name*" required className={styles.input} />
 
-                <label htmlFor="phone" className={styles.label}>Number</label>
-                <input id="phone" type="tel" name="phone" value={phone} onChange={this.handleChange}
-                    placeholder="Phone number*" required className={styles.input} />
+                    <label htmlFor="phone" className={styles.label}>Number</label>
+                    <input id="phone" type="tel" name="phone" value={phone} onChange={this.handleChange}
+                        placeholder="Phone number*" required className={styles.input} />
 
-                <button
-                    type="submit"
-                    className={styles.submitBtn}
-                >
-                    Add contact
+                    <button
+                        type="submit"
+                        className={styles.submitBtn}
+                    >
+                        Add contact
                 </button>
-            </form>
+                </form>
+            </div>
         )
     }
 }
