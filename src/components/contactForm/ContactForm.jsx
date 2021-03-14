@@ -21,6 +21,11 @@ class ContactForm extends Component {
     }
     handleSubmit = (event) => {
         event.preventDefault()
+
+        if (this.props.contacts.some((contact) => contact.name === this.state.name)) {
+            alert(`${this.state.name} is already exist`);
+            return
+        }
         this.props.addPhone(this.state)
         this.setState({ ...InitialState })
     }
@@ -51,7 +56,10 @@ class ContactForm extends Component {
         )
     }
 }
+const mapStateToProps = (state) => ({
+    contacts: state.contacts.items
+})
 
 const mapDispatchToProps = { addPhone }
 
-export default connect(null, mapDispatchToProps)(ContactForm)
+export default connect(mapStateToProps, mapDispatchToProps)(ContactForm)
